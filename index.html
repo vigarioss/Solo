@@ -1,96 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestão de Funcionários</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Gastos Mensais</title>
+  <link rel="stylesheet" href="style.css"> <!-- Incluindo o CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotecas -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"></script>
+  <script src="script.js" defer></script> <!-- Incluindo o JS -->
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo da Empresa">
-            <h1>Empresa de Costura XYZ</h1>
+  <nav class="navbar">
+    <h1>Gestão de Gastos Mensais</h1>
+    <button class="button button-primary">Adicionar Transação</button>
+  </nav>
+
+  <div class="main-container">
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-header">
+          <h2>Balanço Mensal</h2>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Funcionários</a></li>
-                <li><a href="#">Projetos</a></li>
-                <li><a href="#">Relatórios</a></li>
-                <li><a href="#">Configurações</a></li>
-                <li><a href="#">Ajuda</a></li>
-                <li><a href="#">Sair</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="dashboard">
-            <div class="card">
-                <h3>Total de Funcionários</h3>
-                <p>120</p>
-            </div>
-            <div class="card">
-                <h3>Projetos Ativos</h3>
-                <p>5</p>
-            </div>
-            <div class="card">
-                <h3>Horas Trabalhadas</h3>
-                <p>800h</p>
-            </div>
-            <div class="card">
-                <h3>Desempenho Geral</h3>
-                <p>87%</p>
-            </div>
-        </section>
-
-        <section class="actions">
-            <button>Cadastrar Novo Funcionário</button>
-            <button>Novo Projeto</button>
-            <button>Gerar Relatório</button>
-        </section>
-
-        <section class="employee-table">
-            <h2>Funcionários Recentes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Função</th>
-                        <th>Projeto Atual</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maria Silva</td>
-                        <td>Costureira</td>
-                        <td>Projeto A</td>
-                        <td>Ativo</td>
-                        <td><a href="#">Editar</a> | <a href="#">Remover</a> | <a href="#">Ver Detalhes</a></td>
-                    </tr>
-                    <!-- Mais linhas de funcionários -->
-                </tbody>
-            </table>
-        </section>
-
-        <section class="project-calendar">
-            <h2>Agenda de Projetos</h2>
-            <div class="calendar">
-                <!-- Código para o calendário -->
-                <p>Exemplo de calendário aqui...</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2024 Empresa de Costura XYZ. Todos os direitos reservados.</p>
-        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
-        <div class="social-media">
-            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+        <div class="chart-container">
+          <canvas id="balanceChart"></canvas>
         </div>
-    </footer>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Categorias</h2>
+        </div>
+        <div class="chart-container">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Últimas Transações</h2>
+        </div>
+        <div class="transactions-list">
+          <!-- Lista de transações será preenchida via JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
